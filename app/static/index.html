@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0d0d16">
+<meta name="color-scheme" content="dark">
+<title>Idea Atlas</title>
+<link rel="icon" href="atlas.ico">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="backdrop" aria-hidden="true"></div>
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="8" r="2.6"/><circle cx="17" cy="7" r="2.1"/><circle cx="12" cy="17" r="2.8"/><path d="M8.9 9.6 10.7 15M15.6 8.6 13.3 14.7M9.5 7.8l5.4-.6"/></svg>
+      <span>Idea Atlas</span>
+    </div>
+
+    <div class="side-label">Project</div>
+    <div class="proj">
+      <select id="projectSelect" title="Current project"></select>
+      <button class="icon-btn" data-act="new-project" title="New project">
+        <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+      </button>
+    </div>
+
+    <nav class="tabs" id="tabs">
+      <button data-view="capture"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4z"/><path d="M13.5 6.5l4 4"/></svg><span>Capture</span></button>
+      <button data-view="search" title="Search this project (Ctrl+K)"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><span>Search</span><kbd>Ctrl K</kbd></button>
+      <button data-view="map"><svg viewBox="0 0 24 24"><circle cx="6" cy="7" r="2.2"/><circle cx="18" cy="6" r="2.2"/><circle cx="12" cy="18" r="2.2"/><path d="M7.6 8.6l3.3 7.4M16.8 7.8l-3.6 8.2M8.2 6.8l7.6-.6"/></svg><span>Map</span></button>
+      <button data-view="cards"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/></svg><span>Cards</span></button>
+      <button data-view="quests"><svg viewBox="0 0 24 24"><path d="M6 21V4"/><path d="M6 4h11l-2.5 4L17 12H6"/></svg><span>Quests</span></button>
+      <button data-view="trace" hidden title="Requirements from the project documents, with your tracking"><svg viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="16" rx="2.5"/><path d="M3.5 9.5h17M9 9.5V20"/><path d="M12.5 14.5l1.6 1.6 3.2-3.4"/></svg><span>Traceability</span></button>
+      <button data-view="notes"><svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg><span>Notes</span></button>
+      <button data-view="compare"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="14" rx="2.5"/><path d="M12 5v14"/></svg><span>Compare</span></button>
+      <div class="side-sep"></div>
+      <button data-view="export"><svg viewBox="0 0 24 24"><path d="M12 15V3M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/></svg><span>Export</span></button>
+      <button data-view="projects"><svg viewBox="0 0 24 24"><path d="M3.5 7a2 2 0 012-2h4l2 2h7a2 2 0 012 2v8a2 2 0 01-2 2h-13a2 2 0 01-2-2z"/></svg><span>Projects</span></button>
+    </nav>
+
+    <div class="side-foot">
+      <div class="xp" id="xpBadge" title="Quest progress"></div>
+      <div class="hotkey" id="hotkeyHint"></div>
+    </div>
+  </aside>
+
+  <main id="main"></main>
+</div>
+
+<aside id="drawer" class="drawer" aria-hidden="true">
+  <div class="drawer-head"><span id="drawerCode" class="small mute"></span><button class="icon-btn" data-act="close-drawer" title="Close (Esc)"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div id="drawerBody"></div>
+</aside>
+
+<div id="toast" class="toast" role="status"></div>
+<div id="modal" class="modal" hidden><div class="modal-box" id="modalBox"></div></div>
+
+<script src="vendor/mermaid.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

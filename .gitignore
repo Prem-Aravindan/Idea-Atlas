@@ -1,0 +1,12 @@
+.venv/
+build/
+data/
+program/
+presentations/
+IdeaAtlas.exe
+__pycache__/
+*.pyc
+*.bak
+CLAUDE.local.md
+.claude/settings.local.json
+atlassian-edge-architecture.md
